@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() , Update{
         transaction.add(R.id.editBox,Inpu).addToBackStack(null)
         transaction.add(R.id.displayBox,Displ).addToBackStack(null).commit()
 
-      // val udpConnect = Thread(ClientSendAndListen()).start()
+      //
+        // val udpConnect = Thread(ClientSendAndListen()).start()
 
 
 
