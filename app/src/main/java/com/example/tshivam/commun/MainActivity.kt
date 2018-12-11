@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() , Update{
         setContentView(R.layout.activity_main)
 
         val inn =  Intent(this,UDPService::class.java)
-        startService(inn)
+        startForegroundService(inn)
 
         val Inpu = Inpu()
 
