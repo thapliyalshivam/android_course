@@ -8,6 +8,9 @@ import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import android.widget.Toast
+import java.sql.Time
+import java.util.*
+import kotlin.concurrent.schedule
 
 class UDPService : Service() {
     override fun onBind(intent: Intent?): IBinder {
@@ -20,8 +23,9 @@ class UDPService : Service() {
 
 
           Log.e("asdasdasdas","sas")
-
-
+        Timer("SettingUp", false).schedule(5000) {
+            stopForeground(true)
+        }
 
 //        Thread(Runnable {
 //            // a potentially time consuming task
@@ -76,6 +80,9 @@ class UDPService : Service() {
     }
 
     override fun onDestroy() {
+        Log.e("on create","service has been stopped")
         super.onDestroy()
     }
+
+
 }
