@@ -14,12 +14,8 @@ import kotlin.concurrent.schedule
 
 class UDPService : Service() {
     var udpConnect = ClientSendAndListen()
+
     var th = Thread(udpConnect)
-
-
-
-
-
 
 
     override fun onBind(intent: Intent?): IBinder {
