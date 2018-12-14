@@ -13,7 +13,17 @@ import java.util.*
 import kotlin.concurrent.schedule
 
 class UDPService : Service() {
+    var udpConnect = ClientSendAndListen()
+    var th = Thread(udpConnect)
+
+
+
+
+
+
+
     override fun onBind(intent: Intent?): IBinder {
+
         return null!!
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -23,14 +33,21 @@ class UDPService : Service() {
 
 
           Log.e("asdasdasdas","sas")
-        Timer("SettingUp", false).schedule(5000) {
-            stopForeground(true)
+        Timer("SettingUp", false).schedule(15000) {
+            udpConnect?.stopThread()
+            stopSelf()
+
         }
 
+         th?.start()
+
+//
 //        Thread(Runnable {
 //            // a potentially time consuming task
 //            while (true){
 //            Log.e("asdasdasdas",(Math.random()*10000).toString())}
+//
+//
 //        }).start()
 
 
@@ -53,6 +70,7 @@ class UDPService : Service() {
 
     override fun onCreate() {
         Log.e("on create","create")
+     //  udpConnect =  Thread(ClientSendAndListen())
 
         val pendingIntent: PendingIntent =
                 Intent(this, MainActivity::class.java).let { notificationIntent ->
@@ -80,6 +98,8 @@ class UDPService : Service() {
     }
 
     override fun onDestroy() {
+
+        udpConnect?.stopThread()
         Log.e("on create","service has been stopped")
         super.onDestroy()
     }

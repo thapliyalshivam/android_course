@@ -12,9 +12,22 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 class ClientSendAndListen : Runnable {
+
+    var run = true
+
+
+    public fun stopThread(){
+        run = false
+
+    }
+
+
+
+
     override fun run() {
         val serverAddr: InetAddress = InetAddress.getByName("192.168.0.113")
-        var run = true
+
+
         try {
             val udpSocket = DatagramSocket(6789)
             try {
@@ -56,7 +69,8 @@ class ClientSendAndListen : Runnable {
                    // udpSocket.receive(packet)
                    // val text = String(message, 0, packet.getLength())
                    // Log.d("Received text", text)
-                } catch (e: IOException) {
+                }
+                catch (e: IOException) {
                     Log.e(" UDP client has IOException", "error: ", e)
                     run = false
                     udpSocket.close()
@@ -65,6 +79,10 @@ class ClientSendAndListen : Runnable {
                     run = false
                     udpSocket.close()
                 }
+                catch(e: InterruptedException ){
+
+                     //   Thread.currentThread().interrupt();
+                    }
 
             }
 
