@@ -1,4 +1,4 @@
-package com.example.tshivam.commun
+package com.example.tshivam.commun.pojo
 
 import com.google.gson.annotations.SerializedName
 
