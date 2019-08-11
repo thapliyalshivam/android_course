@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 
 object Retro {
-    lateinit var RETROFIT_CLIENT: gitApi
+    lateinit var RETROFIT_CLIENT: gitApis
 
     fun get(): gitApi = RETROFIT_CLIENT
 

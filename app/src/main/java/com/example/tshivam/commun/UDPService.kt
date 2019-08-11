@@ -37,15 +37,6 @@ class UDPService : Service() {
 
          th?.start()
 
-//
-//        Thread(Runnable {
-//            // a potentially time consuming task
-//            while (true){
-//            Log.e("asdasdasdas",(Math.random()*10000).toString())}
-//
-//
-//        }).start()
-
 
 
 

@@ -43,12 +43,15 @@ class MainActivity : AppCompatActivity() , Update{
         val Displ = Displ()
 
 
+
+
+
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.editBox,Inpu).addToBackStack(null)
         transaction.add(R.id.displayBox,Displ).addToBackStack(null).commit()
 
       //
-        // val udpConnect = Thread(ClientSendAndListen()).start()
+         val udpConnect = Thread(ClientSendAndListen()).start()
 
         Retro.get().apiGetUsers("shivam").enqueue(object : Callback<ApiResponse> {
             override fun onResponse(call: Call<ApiResponse>?, response: Response<ApiResponse>) {
@@ -62,8 +65,6 @@ class MainActivity : AppCompatActivity() , Update{
 
                 Log.d("tatitttttt",t?.message)
 
-//                view?.dismissLoading()
-//                view?.failureApi()
             }
         })
 
